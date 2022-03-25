@@ -31,40 +31,42 @@ export function Characters({
   return (
     <>
       <div className={styles.charactersWrapper}>
-        {showOnlyFavorite ? (
-          favoriteCharacters.length > 0 ? (
-            favoriteCharacters.map((favoriteCharacter: RMCharacter) => {
-              return (
-                <CharCard
-                  key={favoriteCharacter?.id}
-                  character={favoriteCharacter}
-                />
-              );
-            })
+        <div className={styles.charactersInnerWrapper}>
+          {showOnlyFavorite ? (
+            favoriteCharacters.length > 0 ? (
+              favoriteCharacters.map((favoriteCharacter: RMCharacter) => {
+                return (
+                  <CharCard
+                    key={favoriteCharacter?.id}
+                    character={favoriteCharacter}
+                  />
+                );
+              })
+            ) : (
+              <div className={styles.noFavoriteChars}>
+                <span> I’ll tell you how I feel about school, Jerry</span>
+              </div>
+            )
           ) : (
-            <div className={styles.noFavoriteChars}>
-              I’ll tell you how I feel about school, Jerry
-            </div>
-          )
-        ) : (
-          characters.map((character: RMCharacter) => {
-            return <CharCard key={character?.id} character={character} />;
-          })
+            characters.map((character: RMCharacter) => {
+              return <CharCard key={character?.id} character={character} />;
+            })
+          )}
+        </div>
+        {showMoreButton && (
+          <div className={styles.moreCharsWrapper}>
+            <button onClick={handleMoreChars} className={styles.moreChars}>
+              Get
+              <img
+                className={styles.addMoreChars}
+                src="/images/morty.svg"
+                alt="more chars"
+              />
+              characters
+            </button>
+          </div>
         )}
       </div>
-      {showMoreButton && (
-        <div className={styles.moreCharsWrapper}>
-          <button onClick={handleMoreChars} className={styles.moreChars}>
-            Get
-            <img
-              className={styles.addMoreChars}
-              src="/images/morty.svg"
-              alt="more chars"
-            />
-            characters
-          </button>
-        </div>
-      )}
     </>
   );
 }

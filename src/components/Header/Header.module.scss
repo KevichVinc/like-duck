@@ -1,23 +1,42 @@
-.header{
+.header {
   display: flex;
+  justify-content: center;
   top: 0;
   position: fixed;
   background-color: white;
   width: 100%;
-  justify-content: space-between;
   padding: 10px 20px;
   box-shadow: 0 10px 20px rgb(0 0 0 / 12%);
+  height: 106px;
 }
 
-.logoWrapper{
+.navWrapper {
+  display: flex;
+  max-width: 1440px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.logoWrapper {
   display: flex;
 }
 
-.logo{
+.logoBig {
   width: 280px;
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
-.charactersWrapper{
+.logoSmall {
+  width: 100px;
+  display: none;
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+
+.charactersWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,20 +45,30 @@
   padding: 14px;
 }
 
-.controls{
+.controls {
   display: flex;
   align-items: center;
   column-gap: 12px;
+  line-height: 22px;
 }
 
-.noFavoriteChars{
+.controlsTitle {
+  font-size: 24px;
+  @media (max-width: 480px) {
+    text-align: right;
+    font-size: 16px;
+  }
+}
+
+.noFavoriteChars {
   display: flex;
   align-items: center;
+  text-align: center;
   height: 100vh;
 }
 
-.checkbox{
-  width: 16px;
-  height: 16px;
+.checkbox {
+  min-width: 24px;
+  min-height: 24px;
   cursor: pointer;
 }
