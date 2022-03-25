@@ -17,4 +17,5 @@ export interface RMCharacter {
   status: string;
   type: string;
   url: string;
+  isFavorite?: boolean;
 }

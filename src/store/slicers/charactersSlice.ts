@@ -1,16 +1,16 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "store/index";
-import { getRMCharacters } from "api/index";
-import { RMCharacter } from "types/index";
+import { getRMCharacters } from "api";
+import { RMCharacter } from "types";
 
 export interface CharactersState {
   status: "idle" | "loading" | "failed";
-  characters: RMCharacter[];
+  charactersList: RMCharacter[];
 }
 
 const initialState: CharactersState = {
   status: "idle",
-  characters: [] as RMCharacter[],
+  charactersList: [],
 };
 
 // The function below is called a thunk and allows us to perform async logic. It
@@ -21,17 +21,46 @@ const initialState: CharactersState = {
 export const getCharacters = createAsyncThunk(
   "counter/fetchCount",
   async () => {
-    const characters = await getRMCharacters();
+    const { results } = await getRMCharacters();
+
     // The value we return becomes the `fulfilled` action payload
-    return { characters };
+    return results.map((character: RMCharacter) => {
+      return {
+        ...character,
+        isFavorite: false,
+      };
+    });
   }
 );
 
-export const counterSlice = createSlice({
+export const charactersSlice = createSlice({
   name: "characters",
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
+    addToFavorite(state, action: PayloadAction<RMCharacter>) {
+      state.charactersList = state.charactersList.map((character) => {
+        if (action.payload.id === character.id) {
+          console.log("found what to like");
+          return {
+            ...character,
+            isFavorite: true,
+          };
+        }
+        return character;
+      });
+    },
+    removeFromFavorite(state, action: PayloadAction<RMCharacter>) {
+      state.charactersList = state.charactersList.map((character) => {
+        if (action.payload.id === character.id) {
+          return {
+            ...character,
+            isFavorite: false,
+          };
+        }
+        return character;
+      });
+    },
     // Redux Toolkit allows us to write "mutating" logic in reducers. It
     // doesn't actually mutate the state because it uses the Immer library,
     // which detects changes to a "draft state" and produces a brand new
@@ -46,9 +75,9 @@ export const counterSlice = createSlice({
         state.status = "loading";
       })
       .addCase(getCharacters.fulfilled, (state, action) => {
-        const { characters } = action.payload;
+        const results = action.payload;
         state.status = "idle";
-        state.characters = characters;
+        state.charactersList = results;
       });
   },
 });
@@ -56,9 +85,15 @@ export const counterSlice = createSlice({
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
-export const selectCharacters = (state: RootState) => state.counter.characters;
+export const selectCharacters = (state: RootState) =>
+  state.characters.charactersList;
+
+export const selectFavoriteCharacters = (state: RootState) =>
+  state.characters.charactersList.filter((character) => character.isFavorite);
+
+export const { addToFavorite, removeFromFavorite } = charactersSlice.actions;
 
 // We can also write thunks by hand, which may contain both sync and async logic.
 // Here's an example of conditionally dispatching actions based on current state.
 
-export default counterSlice.reducer;
+export default charactersSlice.reducer;
