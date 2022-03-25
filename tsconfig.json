@@ -1,32 +1,13 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "baseUrl": "src",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
     "allowJs": true,
-    "paths": {
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@constants/*": [
-        "src/constants/*"
-      ],
-      "@styles/*": [
-        "src/styles/*"
-      ],
-      "@api": [
-        "src/api/index.ts"
-      ],
-      "@types": [
-        "src/types/index.ts"
-      ],
-      "@hooks/*": [
-        "src/hooks/*"
-      ]
-    },
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
