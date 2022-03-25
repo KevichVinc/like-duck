@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Schwifty';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('styles/fonts/Get-Schwifty.ttf') format('opentype');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:'Schwifty',sans-serif ;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+

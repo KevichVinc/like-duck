@@ -6,11 +6,13 @@ import { RMCharacter } from "types";
 export interface CharactersState {
   status: "idle" | "loading" | "failed";
   charactersList: RMCharacter[];
+  page: number;
 }
 
 const initialState: CharactersState = {
   status: "idle",
   charactersList: [],
+  page: 1,
 };
 
 // The function below is called a thunk and allows us to perform async logic. It
@@ -20,8 +22,8 @@ const initialState: CharactersState = {
 // typically used to make async requests.
 export const getCharacters = createAsyncThunk(
   "counter/fetchCount",
-  async () => {
-    const { results } = await getRMCharacters();
+  async (page: number) => {
+    const { results } = await getRMCharacters(page);
 
     // The value we return becomes the `fulfilled` action payload
     return results.map((character: RMCharacter) => {
@@ -77,7 +79,8 @@ export const charactersSlice = createSlice({
       .addCase(getCharacters.fulfilled, (state, action) => {
         const results = action.payload;
         state.status = "idle";
-        state.charactersList = results;
+        state.charactersList = [...state.charactersList, ...results];
+        state.page += 1;
       });
   },
 });
@@ -89,7 +92,11 @@ export const selectCharacters = (state: RootState) =>
   state.characters.charactersList;
 
 export const selectFavoriteCharacters = (state: RootState) =>
-  state.characters.charactersList.filter((character) => character.isFavorite);
+  state.characters.charactersList.filter(
+    (character: RMCharacter) => character.isFavorite
+  );
+
+export const selectPage = (state: RootState) => state.characters.page;
 
 export const { addToFavorite, removeFromFavorite } = charactersSlice.actions;
 
