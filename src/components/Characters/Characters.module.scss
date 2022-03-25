@@ -1,0 +1,41 @@
+.charactersWrapper{
+  display: flex;
+  top: 0;
+  margin-top: 106px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 14px;
+  min-height: 100vh;
+}
+
+.controls{
+  display: flex;
+  align-items: center;
+}
+
+.noFavoriteChars{
+  display: flex;
+  font-size: 28px;
+  align-items: center;
+}
+
+.moreCharsWrapper{
+  display: flex;
+  justify-content: center;
+}
+
+.moreChars{
+  font-family: Schwifty, sans-serif;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.addMoreChars{
+  width: 120px;
+}

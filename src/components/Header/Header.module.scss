@@ -1,0 +1,45 @@
+.header{
+  display: flex;
+  top: 0;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  justify-content: space-between;
+  padding: 10px 20px;
+  box-shadow: 0 10px 20px rgb(0 0 0 / 12%);
+}
+
+.logoWrapper{
+  display: flex;
+}
+
+.logo{
+  width: 280px;
+}
+
+.charactersWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 14px;
+}
+
+.controls{
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+}
+
+.noFavoriteChars{
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.checkbox{
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
