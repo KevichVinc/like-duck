@@ -1,0 +1,48 @@
+.cardWrapper{
+  display: flex;
+  background-color: #f5f1e4;
+  flex: 1 1;
+  row-gap: 18px;
+  flex-direction: column;
+  padding: 14px 28px;
+  max-width: 360px;
+  border-radius: 12px;
+}
+
+.imageWrapper{
+  display: flex;
+  justify-content: center;
+}
+
+.infoWrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  span {
+    white-space: nowrap;
+    text-align: left;
+  }
+}
+
+.charPhoto{
+  display: flex;
+  width: 280px;
+  border-radius: 6px;
+}
+
+.likeWrapper{
+  display: flex;
+  align-items: center;
+}
+
+.likeButton{
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
