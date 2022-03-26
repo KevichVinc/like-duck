@@ -2,7 +2,6 @@
   "name": "rick-and-morty-database",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://kevichvinc.github.io/rick-and-morty-chars-database",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
     "@testing-library/jest-dom": "^5.16.2",
