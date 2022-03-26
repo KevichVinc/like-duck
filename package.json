@@ -1,6 +1,6 @@
 {
-  "name": "like-duck",
-  "version": "0.1.0",
+  "name": "rick-and-morty-database",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
