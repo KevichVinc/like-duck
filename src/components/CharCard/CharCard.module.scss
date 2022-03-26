@@ -1,4 +1,4 @@
-.cardWrapper{
+.cardWrapper {
   display: flex;
   background-color: #f5f1e4;
   flex: 1 1;
@@ -6,20 +6,22 @@
   flex-direction: column;
   padding: 14px 28px;
   max-width: 360px;
+  max-height: 395px;
   border-radius: 12px;
 }
 
-.imageWrapper{
+.imageWrapper {
   display: flex;
   justify-content: center;
+  max-height: 270px;
 }
 
-.infoWrapper{
+.infoWrapper {
   display: flex;
   justify-content: space-between;
 }
 
-.info{
+.info {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -32,19 +34,39 @@
   }
 }
 
-.charPhoto{
+.charPhoto {
   display: flex;
   width: 270px;
   border-radius: 6px;
 }
 
-.likeWrapper{
+.likeWrapper {
   display: flex;
   align-items: center;
 }
 
-.likeButton{
+.likeButton {
   cursor: pointer;
   width: 30px;
   height: 30px;
+}
+
+.portal {
+  display: flex;
+  width: 270px;
+  max-height: 270px;
+  transform-origin: center;
+}
+
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  animation: rotating 14s linear infinite;
 }

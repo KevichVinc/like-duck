@@ -4,6 +4,7 @@ import { useAppDispatch } from "store/hooks";
 import { getCharacters, selectPage } from "store/slicers/charactersSlice";
 import { Characters } from "components/Characters/Characters";
 import { Header } from "components/Header/Header";
+import { Footer } from "components/Footer/Footer";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -15,12 +16,17 @@ function App() {
   };
 
   useEffect(() => {
+    if (page > 1) {
+      return;
+    }
     dispatch(getCharacters(page));
-  }, [dispatch]);
+  }, [dispatch, page]);
+
   return (
     <div className="App">
       <Header showOnlyFavorite={handleShowOnlyFavorite} />
       <Characters showOnlyFavorite={showOnlyFavorite} />
+      <Footer />
     </div>
   );
 }
