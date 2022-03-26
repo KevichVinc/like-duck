@@ -6,6 +6,7 @@ import {
   removeFromFavorite,
 } from "store/slicers/charactersSlice";
 import styles from "./CharCard.module.scss";
+import cx from "classnames";
 
 export function CharCard({
   character,
@@ -14,6 +15,13 @@ export function CharCard({
 }): JSX.Element {
   const dispatch = useAppDispatch();
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
+  const [isCharPhotoLoaded, setIsImageLoaded] = useState<boolean>(false);
+
+  const originalImage = document.createElement("img");
+  originalImage.src = character?.image;
+  originalImage.onload = () => {
+    setIsImageLoaded(true);
+  };
 
   const { name, status, species } = character;
 
@@ -29,11 +37,19 @@ export function CharCard({
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.imageWrapper}>
-        <img
-          className={styles.charPhoto}
-          src={character?.image}
-          alt="charPhoto"
-        />
+        {isCharPhotoLoaded ? (
+          <img
+            className={styles.charPhoto}
+            src={character?.image}
+            alt="charPhoto"
+          />
+        ) : (
+          <img
+            className={cx(styles.portal, styles.rotating)}
+            src="/images/portal.png"
+            alt="portal"
+          />
+        )}
       </div>
       <div className={styles.infoWrapper}>
         <div className={styles.info}>

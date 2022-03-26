@@ -12,6 +12,10 @@
   box-sizing: border-box;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   font-family:'Schwifty',sans-serif ;
   margin: 0;
@@ -20,9 +24,5 @@ body {
 }
 
 
-//variables
-:root {
-  --tablet: 768px;
-}
 
 
