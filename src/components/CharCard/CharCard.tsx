@@ -46,7 +46,7 @@ export function CharCard({
         ) : (
           <img
             className={cx(styles.portal, styles.rotating)}
-            src="/images/portal.png"
+            src="/rick-and-morty-chars-database/images/portal.png"
             alt="portal"
           />
         )}
@@ -61,7 +61,11 @@ export function CharCard({
           <img
             onClick={handleAddFavorite}
             className={styles.likeButton}
-            src={isFavorite ? "/images/likeFill.svg" : "/images/like.svg"}
+            src={
+              isFavorite
+                ? "/rick-and-morty-chars-database/images/likeFill.svg"
+                : "/rick-and-morty-chars-database/images/like.svg"
+            }
             alt="Like"
           />
         </div>

@@ -59,7 +59,7 @@ export function Characters({
               Get
               <img
                 className={styles.addMoreChars}
-                src="/images/morty.svg"
+                src="/rick-and-morty-chars-database/images/morty.svg"
                 alt="more chars"
               />
               characters

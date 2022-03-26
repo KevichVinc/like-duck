@@ -16,7 +16,7 @@ export function Footer(): JSX.Element {
           >
             <img
               className={styles.linkIcon}
-              src="/images/github.svg"
+              src="/rick-and-morty-chars-database/images/github.svg"
               alt="github"
             />
           </a>
@@ -24,7 +24,7 @@ export function Footer(): JSX.Element {
         <div className={styles.goToTop} onClick={() => scrollTo(0)}>
           <img
             className={cx(styles.portalToTop, styles.rotating)}
-            src="/images/portal.png"
+            src="/rick-and-morty-chars-database/images/portal.png"
             alt="portal"
           />
           <span className={styles.scrollTitle}>Scroll to top!</span>

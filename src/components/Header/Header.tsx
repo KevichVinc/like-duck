@@ -12,12 +12,12 @@ export function Header({
         <div className={styles.logoWrapper}>
           <img
             className={styles.logoBig}
-            src="/images/Rick_and_Morty.svg"
+            src="/rick-and-morty-chars-database/images/Rick_and_Morty.svg"
             alt="logo"
           />
           <img
             className={styles.logoSmall}
-            src="/images/jerry.svg"
+            src="/rick-and-morty-chars-database/images/jerry.svg"
             alt="logo"
           />
         </div>
