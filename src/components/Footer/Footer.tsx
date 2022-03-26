@@ -9,7 +9,11 @@ export function Footer(): JSX.Element {
       <div className={styles.footerInnerWrapper}>
         <div className={styles.createdByWrapper}>
           <span className={styles.createdByTitle}>Created By: KevichVinc</span>
-          <a href="https://github.com/KevichVinc" target="_blank">
+          <a
+            href="https://github.com/KevichVinc"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className={styles.linkIcon}
               src="/images/github.svg"
