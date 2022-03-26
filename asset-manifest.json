@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/rick-and-morty-chars-database/static/css/main.217398c3.css",
+    "main.css": "/rick-and-morty-chars-database/static/css/main.e7449cfa.css",
     "main.js": "/rick-and-morty-chars-database/static/js/main.8ad4fe2c.js",
     "static/media/Get-Schwifty.ttf": "/rick-and-morty-chars-database/static/media/Get-Schwifty.c3d1dfc692e3547fed16.ttf",
     "index.html": "/rick-and-morty-chars-database/index.html",
-    "main.217398c3.css.map": "/rick-and-morty-chars-database/static/css/main.217398c3.css.map",
+    "main.e7449cfa.css.map": "/rick-and-morty-chars-database/static/css/main.e7449cfa.css.map",
     "main.8ad4fe2c.js.map": "/rick-and-morty-chars-database/static/js/main.8ad4fe2c.js.map"
   },
   "entrypoints": [
-    "static/css/main.217398c3.css",
+    "static/css/main.e7449cfa.css",
     "static/js/main.8ad4fe2c.js"
   ]
 }
